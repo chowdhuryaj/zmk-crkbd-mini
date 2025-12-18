@@ -13,12 +13,13 @@
 #define COMBO_RPI_MS     80
 
 &mmv {
-    acceleration-exponent = <0>;
+    time-to-max-speed-ms = <300>;
+    acceleration-exponent = <2>;
 };
 
 &msc {
-    time-to-max-speed-ms = <200>;
-    acceleration-exponent = <1>;
+    time-to-max-speed-ms = <120>;
+    acceleration-exponent = <2>;
 };
 
 &lt {
@@ -157,8 +158,8 @@
         NAV {
             display-name = "Nav";
             bindings = <
-                &kt LGUI    &kp HOME  &kp UP    &kp END   &kt LALT                   &msc SCRL_LEFT       &msc MOVE_Y(40)        &mmv MOVE_Y(-1200)     &msc MOVE_Y(-40)       &msc SCRL_RIGHT
-                &kt LSHFT   &kp LEFT  &kp DOWN  &kp RIGHT &kt LCTRL                  &kp PG_UP            &mmv MOVE_X(-1200)     &mmv MOVE_Y(1200)      &mmv MOVE_X(1200)      &kp PG_DN
+                &kt LGUI    &kp HOME  &kp UP    &kp END   &kt LALT                   &msc SCRL_LEFT       &msc MOVE_Y(50)        &mmv MOVE_Y(-1000)     &msc MOVE_Y(-50)       &msc SCRL_RIGHT
+                &kt LSHFT   &kp LEFT  &kp DOWN  &kp RIGHT &kt LCTRL                  &kp PG_UP            &mmv MOVE_X(-1000)     &mmv MOVE_Y(1000)      &mmv MOVE_X(1000)      &kp PG_DN
                 &mkp MB4    &mkp MB2  &mkp MB3  &mkp MB1  &mkp MB5                   &kp LA(PLUS)         &kp LA(MINUS)          &kp GRAVE              &kp LA(GRAVE)          &kp LG(GRAVE)
                                         &none     &mo NUMBOL  &none          &mkp MB1             &mo 4             &mkp MB2
             >;
@@ -167,10 +168,10 @@
         SNIPER {
             display-name = "Sniper";
             bindings = <
-                &trans  &msc MOVE_Y(-60)  &mmv MOVE_Y(-1600)  &msc MOVE_Y(60)  &trans                             &trans             &msc MOVE_Y(20)        &mmv MOVE_Y(-300)      &msc MOVE_Y(-20)        &trans
-                &trans  &mmv MOVE_X(-1600)  &mmv MOVE_Y(1600)  &mmv MOVE_X(1600)  &trans        &trans            &mmv MOVE_X(-300)  &mmv MOVE_Y(300)       &mmv MOVE_X(300)       &trans
-                &trans  &trans  &trans  &trans  &trans                   &trans                  &trans                &trans                &trans                &trans
-                                           &trans  &trans  &trans  &trans        &trans  &trans
+                &trans  &trans  &trans  &trans  &trans          &trans  &msc MOVE_Y(20)    &mmv MOVE_Y(-200)   &msc MOVE_Y(-20)      &trans
+                &trans  &trans  &trans  &trans  &trans          &trans  &mmv MOVE_X(-200)  &mmv MOVE_Y(200)    &mmv MOVE_X(200)      &trans
+                &trans  &trans  &trans  &trans  &trans          &trans &trans              &trans              &trans                &trans
+                                &trans  &trans  &trans  &trans  &trans  &trans
     >;
 };
         };
