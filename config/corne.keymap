@@ -24,9 +24,9 @@
             global-quick-tap;
         };
 
-        bpsc_del: BSPC_DEL {
+        bsdel: backspace_delete {
             compatible = "zmk,behavior-mod-morph";
-            label = "BSPC_DEL";
+            label = "BACKSPACE_DELETE";
             bindings = <&kp BSPC>, <&kp DEL>;
 
             #binding-cells = <0>;
@@ -87,7 +87,7 @@
 &kp B        &kp F        &kp L       &kp K        &kp Q                                &kp P      &kp G        &kp O         &kp U        &kp SQT      
 &hm LCTRL N  &hm LALT S   &hm LGUI H  &hm LSHFT T  &kp M                                &kp Y      &hm RSHFT C  &hm RGUI A    &hm RALT E   &hm RCTRL I  
 &kp X        &kp V        &kp J       &kp D        &kp Z                                &kp SEMI   &kp W        &kp COMMA     &kp DOT      &kp FSLH
-                                      &bspc_del    &lt 1 R    &lt 3 SPACE  &key_repeat  &lt 2 SPACE  &bspc_del
+                                      &bsdel    &lt 1 R    &lt 3 SPACE  &key_repeat  &lt 2 SPACE  &bsdel
             >;
         };
 
