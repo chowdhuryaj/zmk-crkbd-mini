@@ -17,11 +17,10 @@
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-            quick_tap_ms = <0>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
 
-            quick-tap-ms = <180>;
+            quick-tap-ms = <150>;
             global-quick-tap;
         };
 
@@ -47,6 +46,10 @@
             bindings = <&kp ENTER>;
             key-positions = <17 18>;
         };
+
+        esc_l {
+            bindings = <&kp ESC>;
+            key-positions = <
     };
 
     keymap {
@@ -58,7 +61,7 @@
 &kp B        &kp F        &kp L       &kp K        &kp Q                                &kp P      &kp G        &kp O         &kp U        &kp SQT      
 &hm LCTRL N  &hm LALT S   &hm LGUI H  &hm LSHFT T  &kp M                                &kp Y      &hm RSHFT C  &hm RGUI A    &hm RALT E   &hm RCTRL I  
 &kp X        &kp V        &kp J       &kp D        &kp Z                                &kp SEMI   &kp W        &kp COMMA     &kp DOT      &kp FSLH
-                                      &bspc_del    &lt 1 R    &lt 4 SPACE  &key_repeat  &lt 2 SPACE  &bspc_del
+                                      &bspc_del    &lt 1 R    &lt 3 SPACE  &key_repeat  &lt 2 SPACE  &bspc_del
             >;
         };
 
@@ -67,18 +70,19 @@
             bindings = <
 &kp ESC      &kp HOME   &kp UP    &kp END    &kt LALT                      &msc SCRL_LEFT    &msc SCRL_UP    &mmv MOVE_UP      &msc SCRL_DOWN    &msc SCRL_RIGHT      
 &kt LSHFT    &kp LEFT   &kp DOWN  &kp RIGHT  &kt LCTRL                     &kp PG_UP         &mmv MOVE_LEFT  &mmv MOVE_DOWN    &mmv MOVE_RIGHT   &kp PG_DN  
-&mkp MB4     &mkp MB2   &mkp MB3  &kp MB1    &mkp MB5                      &kp LA(PLUS)      &kp LA(MINUS)   &kp GRAVE         &kp LA(GRAVE)     &kp LCTRL(GRAVE)
+&mkp MB4     &mkp MB2   &mkp MB3  &mkp MB1    &mkp MB5                      &kp LA(PLUS)      &kp LA(MINUS)   &kp GRAVE         &kp LA(GRAVE)    &kp LG(GRAVE)
                                   &trans     &mo 1    &trans     &mkp MB1  &mo 2      &mkp MB2
+            >;
         };
 
         NUMBOL {
             display-name = "Num/Sym";
-
+            bindings = <
 &kt LALT    &kp N7  &kp N8  &kp N9  &kp PLUS                  &kp ASTRK  &kp LBRC  &kp RBRC  &kp LT     &kp GT
-&kp N0      &kp N4  &kp N5  &kp N6  &kp MINUS                 &kp FSLSH  &kp LPAR  &kp RPAR  &kp AT     &kp HASH
+&kp N0      &kp N4  &kp N5  &kp N6  &kp MINUS                 &kp FSLH  &kp LPAR  &kp RPAR  &kp AT     &kp HASH
 &kt LSHFT   &kp N1  &kp N2  &kp N3  &kp UNDER                 &kp EQUAL  &kp BSLH  &kp DLLR  &kp PRCNT  &kp AMPS
                             &trans  &trans    &trans  &none   &trans    &none
-                        >;
+            >;
         };
 
         ADJ {
