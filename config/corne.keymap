@@ -1,6 +1,6 @@
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
 #define DEF 0
@@ -10,102 +10,102 @@
 #define EXTRA 4
 
 / {
-        chosen {
-          zmk,physical-layout = &foostan_corne_5col_layout;
-        };
-        
-        behaviors {
-                hm: homerow_mods {
-                        compatible = "zmk,behavior-hold-tap";
-                        label = "HOMEROW_MODS";
-                        #binding-cells = <2>;
-                        tapping-term-ms = <200>;
-                        quick_tap_ms = <0>;
-                        flavor = "tap-preferred";
-                        bindings = <&kp>, <&kp>;
+    chosen { zmk,physical-layout = &foostan_corne_5col_layout; };
 
-                        quick-tap-ms = <180>;
-                        global-quick-tap;
-                                
-                };
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick_tap_ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+
+            quick-tap-ms = <180>;
+            global-quick-tap;
         };
 
-       combos {
-           compatible = "zmk,combos";
+        BSPC_DEL: BSPC_DEL {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BSPC_DEL";
+            bindings = <&kp BSPC>, <&kp DEL>;
 
-           ret_l {
-               bindings = <&kp ENTER>;
-               key-positions = <12 13>;
-           };
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
 
-           ret_r {
-               bindings = <&kp ENTER>;
-               key-positions = <17 18>;
-           };
-       };
+    combos {
+        compatible = "zmk,combos";
 
-        keymap {
-                compatible = "zmk,keymap";
+        ret_l {
+            bindings = <&kp ENTER>;
+            key-positions = <12 13>;
+        };
 
-                DEF {
-                        display-name = "Base";
-                        bindings = <
-   &kp B       &kp F        &kp L       &kp K        &kp Q        &kp P        &kp G        &kp O          &kp U       &kp SQT
-   &hm LCTRL N &hm LALT S   &hm LGUI H  &hm LSHFT T  &kp M        &kp Y        &hm RSHFT C  &hm RGUI A     &hm RALT E  &hm RCTRL I
-   &kp X       &kp V        &kp J       &kp D        &kp Z        &kp SEMI     &kp W        &kp COMMA      &kp DOT     &kp FSLH
-                            &kp BSPC    &lt 1 R      &lt 4 SPACE  &key_repeat  &lt 2 SPACE  &kp BSPC
-                        >;
-                };
-                NAV {
-                        display-name = "Nav";
-                        bindings = <
-   &kp ESC       &trans        &trans        &kp END       &kp HOME           &kp N6   &kp N7        &kp N8       &kp N9        &kp N0
-   &hm LGUI A  &hm LSHFT S  &hm LALT UP_ARROW  &hm LCTRL DEL    &kp PAGE_UP      &kp N0   &hm RCTRL N4  &hm RALT N5  &hm RSHFT N6  &hm RGUI PAGE_UP
-   &kp DEL       &kp LEFT      &kp DOWN           &kp RIGHT_ARROW  &kp PAGE_DOWN    &trans   &kp N1        &kp N2       &kp N3        &kp PAGE_DOWN
-                                    &kp LGUI           &trans           &kp SPACE        &kp RET  &trans        &trans
-                        >;
-                };
+        ret_r {
+            bindings = <&kp ENTER>;
+            key-positions = <17 18>;
+        };
+    };
 
-               SYM {
-                        display-name = "Symbols";
-   &kp EXCL  &kp AT          &kp HASH           &kp DLLR         &kp PRCNT    &kp CARET  &kp AMPS         &kp ASTRK      &kp LEFT_PARENTHESIS  &kp RPAR
+    keymap {
+        compatible = "zmk,keymap";
+
+        DEF {
+            display-name = "Base";
+            bindings = <
+&kp B       &kp F        &kp L  &kp K      &kp Q        &kp P         &kp G       &kp O        &kp U        &kp SQT      &hm LCTRL N  &hm LALT S
+&hm LGUI H  &hm LSHFT T  &kp M  &kp Y      &hm RSHFT C  &hm RGUI A    &hm RALT E  &hm RCTRL I  &kp X        &kp V        &kp J        &kp D
+&kp Z       &kp SEMI     &kp W  &kp COMMA  &kp DOT      &kp FSLH      &kp BSPC    &lt 1 R      &lt 4 SPACE  &key_repeat  &lt 2 SPACE  &kp BSPC
+            >;
+        };
+
+        NAV {
+            display-name = "Nav";
+            bindings = <
+&kp ESC            &trans         &trans       &kp END  &kp HOME      &kp N6           &kp N7        &kp N8            &kp N9     &kp N0    &hm LGUI A  &hm LSHFT S
+&hm LALT UP_ARROW  &hm LCTRL DEL  &kp PAGE_UP  &kp N0   &hm RCTRL N4  &hm RALT N5      &hm RSHFT N6  &hm RGUI PAGE_UP  &kp DEL    &kp LEFT  &kp DOWN    &kp RIGHT_ARROW
+&kp PAGE_DOWN      &trans         &kp N1       &kp N2   &kp N3        &kp PAGE_DOWN    &kp LGUI      &trans            &kp SPACE  &kp RET   &trans      &trans
+            >;
+        };
+
+        SYM {
+            display-name = "Symbols";
+
+            &kp EXCL  &kp AT          &kp HASH           &kp DLLR         &kp PRCNT    &kp CARET  &kp AMPS         &kp ASTRK      &kp LEFT_PARENTHESIS  &kp RPAR
    &trans    &trans          &hm LALT UP_ARROW  &hm LCTRL SQT    &kp GRAVE    &kp MINUS  &hm RCTRL EQUAL  &hm RALT LBKT  &hm RSHFT RBKT        &hm RGUI BSLH
    &trans    &kp LEFT_ARROW  &kp DOWN_ARROW     &kp RIGHT_ARROW  &kp TILDE    &kp UNDER  &kp PLUS         &kp LBRC       &kp RBRC              &kp PIPE
                              &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
                         >;
-                };
-                ADJ {
-                        display-name = "Adjust";
-                        bindings = <
-   &kp F1        &kp F2         &kp F3        &kp F4      &kp F5            &kp F6  &kp F7  &kp F8  &kp F9  &kp F10
-   &hm LGUI F11  &hm LSHFT F12  &trans        &trans      &studio_unlock            &trans  &trans  &trans  &trans  &trans
-   &bt BT_SEL 0  &bt BT_SEL 1   &bt BT_SEL 2  &bt BT_CLR  &bt BT_CLR_ALL    &kp CAPS  &trans  &trans  &trans  &bootloader
-                           &trans        &trans      &trans            &trans  &trans  &trans
-                        >;     
-
-                };
-
-                EXTRA {
-                        display-name = "Extra";
-                        bindings = <
-
-   &trans       &trans         &mmv MOVE_UP       &trans      &msc SCRL_UP    &trans  &trans  &trans  &trans  &trans
-   &trans       &mmv MOVE_LEFT &mmv MOVE_DOWN     &mmv MOVE_RIGHT   &msc SCRL_DOWN            &trans  &trans  &trans  &trans  &trans
-   &trans       &trans   &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-                      &trans        &trans      &trans            &trans  &trans  &trans
-
-                        >;
-                };
         };
 
-        conditional_layers {
-                compatible = "zmk,conditional-layers";
-
-                l3 {
-                        if-layers = <1 2>;
-                        then-layer = <3>;
-                };
-
-        
+        ADJ {
+            display-name = "Adjust";
+            bindings = <
+&kp F1          &kp F2    &kp F3          &kp F4  &kp F5  &kp F6         &kp F7  &kp F8  &kp F9        &kp F10       &hm LGUI F11  &hm LSHFT F12
+&trans          &trans    &studio_unlock  &trans  &trans  &trans         &trans  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_CLR
+&bt BT_CLR_ALL  &kp CAPS  &trans          &trans  &trans  &bootloader    &trans  &trans  &trans        &trans        &trans        &trans
+            >;
         };
+
+        EXTRA {
+            display-name = "Extra";
+            bindings = <
+&trans          &trans           &mmv MOVE_UP    &trans  &msc SCRL_UP  &trans    &trans  &trans  &trans  &trans  &trans  &mmv MOVE_LEFT
+&mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN  &trans  &trans        &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans          &trans           &trans          &trans  &trans        &trans    &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        l3 {
+            if-layers = <1 2>;
+            then-layer = <3>;
+        };
+    };
 };
