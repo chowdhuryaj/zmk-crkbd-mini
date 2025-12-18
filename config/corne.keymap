@@ -8,6 +8,9 @@
 #define NUMBOL 2
 #define ADJ 3
 
+#define COMBO_TIMEOUT_MS 35
+#define COMBO_RPI_MS     80
+
 / {
     chosen { zmk,physical-layout = &foostan_corne_5col_layout; };
 
@@ -33,49 +36,73 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
+combos {
+    compatible = "zmk,combos";
 
-        ret_l {
-            bindings = <&kp ENTER>;
-            key-positions = <12 13>;
-        };
-
-        ret_r {
-            bindings = <&kp ENTER>;
-            key-positions = <16 17>;
-        };
-
-        tab_l {
-            bindings = <&kp TAB>;
-            key-positions = <11 12>;
-        };
-
-        tab_r {
-            bindings = <&kp TAB>;
-            key-positions = <15 16>;
-        };
-
-        btab_l {
-            bindings = <&kp LS(TAB)>;
-            key-positions = <21 22>;
-        };
-
-        btab_r {
-            bindings = <&kp LS(TAB)>;
-            key-positions = <25 26>;
-        };
-
-        esc_l {
-            bindings = <&kp ESC>;
-            key-positions = <10 11>;
-        };
-
-        esc_r {
-            bindings = <&kp ESC>;
-            key-positions = <18 19>;
-        };
+    ret_l {
+        timeout-ms = <COMBO_TIMEOUT_MS>;
+        require-prior-idle-ms = <COMBO_RPI_MS>;
+        layers = <0>;
+        bindings = <&kp ENTER>;
+        key-positions = <12 13>;
     };
+
+    ret_r {
+        timeout-ms = <COMBO_TIMEOUT_MS>;
+        require-prior-idle-ms = <COMBO_RPI_MS>;
+        layers = <0>;
+        bindings = <&kp ENTER>;
+        key-positions = <16 17>;
+    };
+
+    tab_l {
+        timeout-ms = <COMBO_TIMEOUT_MS>;
+        require-prior-idle-ms = <COMBO_RPI_MS>;
+        layers = <0>;
+        bindings = <&kp TAB>;
+        key-positions = <11 12>;
+    };
+
+    tab_r {
+        timeout-ms = <COMBO_TIMEOUT_MS>;
+        require-prior-idle-ms = <COMBO_RPI_MS>;
+        layers = <0>;
+        bindings = <&kp TAB>;
+        key-positions = <17 18>;
+    };
+
+    btab_l {
+        timeout-ms = <COMBO_TIMEOUT_MS>;
+        require-prior-idle-ms = <COMBO_RPI_MS>;
+        layers = <0>;
+        bindings = <&kp LS(TAB)>;
+        key-positions = <21 22>;
+    };
+
+    btab_r {
+        timeout-ms = <COMBO_TIMEOUT_MS>;
+        require-prior-idle-ms = <COMBO_RPI_MS>;
+        layers = <0>;
+        bindings = <&kp LS(TAB)>;
+        key-positions = <25 26>;
+    };
+
+    esc_l {
+        timeout-ms = <COMBO_TIMEOUT_MS>;
+        require-prior-idle-ms = <COMBO_RPI_MS>;
+        layers = <0>;
+        bindings = <&kp ESC>;
+        key-positions = <10 11>;
+    };
+
+    esc_r {
+        timeout-ms = <COMBO_TIMEOUT_MS>;
+        require-prior-idle-ms = <COMBO_RPI_MS>;
+        layers = <0>;
+        bindings = <&kp ESC>;
+        key-positions = <18 19>;
+    };
+};
 
     keymap {
         compatible = "zmk,keymap";
