@@ -5,12 +5,22 @@
 
 #define DEF     0
 #define NUMBOL  1
-#define ADJ     2
+#define FN      2
 #define NAV     3
 #define SNIPER  4
 
 #define COMBO_TIMEOUT_MS 35
 #define COMBO_RPI_MS     80
+
+&mmv {
+    time-to-max-speed-ms = <120>;
+    acceleration-exponent = <2>;
+};
+
+&msc {
+    time-to-max-speed-ms = <120>;
+    acceleration-exponent = <0>;
+};
 
 / {
     chosen { zmk,physical-layout = &foostan_corne_5col_layout; };
@@ -35,33 +45,6 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        mmv_fast: mmv_fast {
-            compatible = "zmk,behavior-mouse-move";
-            #binding-cells = <1>;
-            time-to-max-speed-ms = <120>;
-            max-speed = <2200>;
-        };
-
-        mmv_slow: mmv_slow {
-            compatible = "zmk,behavior-mouse-move";
-            #binding-cells = <1>;
-            time-to-max-speed-ms = <400>;
-            max-speed = <500>;
-        };
-
-        msc_fast: msc_fast {
-            compatible = "zmk,behavior-mouse-scroll";
-            #binding-cells = <1>;
-            time-to-max-speed-ms = <120>;
-            max-speed = <35>;
-        };
-
-        msc_slow: msc_slow {
-            compatible = "zmk,behavior-mouse-scroll";
-            #binding-cells = <1>;
-            time-to-max-speed-ms = <300>;
-            max-speed = <6>;
-        };
     };
 
     combos {
@@ -138,25 +121,25 @@
         DEF {
             display-name = "Base";
             bindings = <
-                &kp B        &kp F        &kp L       &kp K        &kp Q                                &kp P      &kp G        &kp O         &kp U        &kp SQT
-                &hm LCTRL N  &hm LALT S   &hm LGUI H  &hm LSHFT T  &kp M                                &kp Y      &hm RSHFT C  &hm RGUI A    &hm RALT E   &hm RCTRL I
-                &kp X        &kp V        &kp J       &kp D        &kp Z                                &kp SEMI   &kp W        &kp COMMA     &kp DOT      &kp FSLH
-                                              &bsdel      &lt NAV R     &lt ADJ SPACE   &key_repeat   &lt NUMBOL SPACE   &bsdel
+                &kp B        &kp F        &kp L       &kp K        &kp Q                          &kp P      &kp G        &kp O         &kp U        &kp SQT
+                &hm LCTRL N  &hm LALT S   &hm LGUI H  &hm LSHFT T  &kp M                          &kp Y      &hm RSHFT C  &hm RGUI A    &hm RALT E   &hm RCTRL I
+                &kp X        &kp V        &kp J       &kp D        &kp Z                          &kp SEMI   &kp W        &kp COMMA     &kp DOT      &kp FSLH
+                                              &bsdel      &lt 3 R     &lt 1 SPACE   &key_repeat   &lt 2 SPACE   &bsdel
             >;
         };
 
         NUMBOL {
             display-name = "Numbol";
             bindings = <
-                &kt LALT   &kp N7  &kp N8  &kp N9  &kp PLUS                  &kp ASTRK  &kp LBRC  &kp RBRC  &kp LT     &kp GT
-                &kp N0     &kp N4  &kp N5  &kp N6  &kp MINUS                 &kp FSLH   &kp LPAR  &kp RPAR  &kp AT     &kp HASH
-                &kt LSHFT  &kp N1  &kp N2  &kp N3  &kp UNDER                 &kp EQUAL  &kp BSLH  &kp DLLR  &kp PRCNT  &kp AMPS
-                                    &trans   &mo ADJ   &trans   &none   &mo ADJ   &none
+                &kt LALT   &kp N7  &kp N8  &kp N9  &kp PLUS              &kp ASTRK  &kp LBRC  &kp RBRC  &kp LT     &kp GT
+                &kp N0     &kp N4  &kp N5  &kp N6  &kp MINUS             &kp FSLH   &kp LPAR  &kp RPAR  &kp AT     &kp HASH
+                &kt LSHFT  &kp N1  &kp N2  &kp N3  &kp UNDER             &kp EQUAL  &kp BSLH  &kp DLLR  &kp PRCNT  &kp AMPS
+                                    &trans   &trans    &trans   &none   &trans   &none
             >;
         };
 
-        ADJ {
-            display-name = "Adjust";
+        FN {
+            display-name = "Fn";
             bindings = <
                 &kp F1   &kp F2   &kp F3  &kp F4   &kp F5        &kp F6   &kp F7   &kp F8  &kp F9  &kp F10
                 &kp F11  &kp F12  &kp F13 &kp F14  &kp F15       &kp F16  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_CLR
@@ -168,30 +151,21 @@
         NAV {
             display-name = "Nav";
             bindings = <
-                &kt LGUI    &kp HOME  &kp UP    &kp END   &kt LALT                   &msc_fast SCRL_LEFT  &msc_fast SCRL_UP   &mmv_fast MOVE_UP    &msc_fast SCRL_DOWN  &msc_fast SCRL_RIGHT
-                &kt LSHFT   &kp LEFT  &kp DOWN  &kp RIGHT &kt LCTRL                  &kp PG_UP            &mmv_fast MOVE_LEFT &mmv_fast MOVE_DOWN  &mmv_fast MOVE_RIGHT &kp PG_DN
-                &mkp MB4    &mkp MB2  &mkp MB3  &mkp MB1  &mkp MB5                   &kp LA(PLUS)         &kp LA(MINUS)       &kp GRAVE            &kp LA(GRAVE)        &kp LG(GRAVE)
-                                          &none     &mo NUMBOL  &none     &mkp MB1   &mo SNIPER  &mkp MB2
+                &kt LGUI    &kp HOME  &kp UP    &kp END   &kt LALT                   &msc SCRL_LEFT       &msc MOVE_Y(35)        &mmv MOVE_Y(-2200)     &msc MOVE_Y(-35)       &msc SCRL_RIGHT
+                &kt LSHFT   &kp LEFT  &kp DOWN  &kp RIGHT &kt LCTRL                  &kp PG_UP            &mmv MOVE_X(-2200)     &mmv MOVE_Y(2200)      &mmv MOVE_X(2200)      &kp PG_DN
+                &mkp MB4    &mkp MB2  &mkp MB3  &mkp MB1  &mkp MB5                   &kp LA(PLUS)         &kp LA(MINUS)          &kp GRAVE              &kp LA(GRAVE)          &kp LG(GRAVE)
+                                        &none     &mo NUMBOL  &none          &mkp MB1             &mo 4             &mkp MB2
             >;
         };
 
         SNIPER {
             display-name = "Sniper";
             bindings = <
-                &trans  &trans  &trans  &trans  &trans                   &msc_slow SCRL_LEFT  &msc_slow SCRL_UP   &mmv_slow MOVE_UP    &msc_slow SCRL_DOWN  &msc_slow SCRL_RIGHT
-                &trans  &trans  &trans  &trans  &trans                   &trans               &mmv_slow MOVE_LEFT &mmv_slow MOVE_DOWN  &mmv_slow MOVE_RIGHT &trans
-                &trans  &trans  &trans  &trans  &trans                   &trans               &trans              &trans              &trans               &trans
-                                   &trans  &trans  &trans  &trans        &trans  &trans
-            >;
-        };
-    };
-
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-
-        l3 {
-            if-layers = <NUMBOL ADJ>;
-            then-layer = <NAV>;
-        };
-    };
+                &trans  &trans  &trans  &trans  &trans                   &msc SCRL_LEFT       &msc MOVE_Y(6)         &mmv MOVE_Y(-500)      &msc MOVE_Y(-6)        &msc SCRL_RIGHT
+                &trans  &trans  &trans  &trans  &trans                   &trans               &mmv MOVE_X(-500)      &mmv MOVE_Y(500)       &mmv MOVE_X(500)       &trans
+                &trans  &trans  &trans  &trans  &trans                   &trans               &trans                &trans                &trans                &trans
+                                           &trans  &trans  &trans  &trans        &trans  &trans
+    >;
 };
+        };
+    };
