@@ -30,6 +30,20 @@
                 };
         };
 
+       combos {
+           compatible = "zmk,combos";
+
+           ret_l {
+               bindings = <&kp ENTER>;
+               key-positions = <12 13>;
+           };
+
+           ret_r {
+               bindings = <&kp ENTER>;
+               key-positions = <17 18>;
+           };
+       };
+
         keymap {
                 compatible = "zmk,keymap";
 
