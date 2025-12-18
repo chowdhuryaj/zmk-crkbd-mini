@@ -36,9 +36,9 @@
                 DEF {
                         display-name = "Base";
                         bindings = <
-   &kp B       &kp F        &kp L       &kp K        &kp Q        &kp          &kp U        &kp I          &kp O        &kp P
+   &kp B       &kp F        &kp L       &kp K        &kp Q        &kp P        &kp G        &kp O          &kp U       &kp SQT
    &hm LCTRL N &hm LALT S   &hm LGUI H  &hm LSHFT T  &kp M        &kp Y        &hm RSHFT C  &hm RGUI A     &hm RALT E  &hm RCTRL I
-   &kp X       &kp V        &kp J       &kp D        &kp Z        &kp SEMI     &kp W        &kp COMMA      &kp DOT      &kp FSLH
+   &kp X       &kp V        &kp J       &kp D        &kp Z        &kp SEMI     &kp W        &kp COMMA      &kp DOT     &kp FSLH
                             &kp BSPC    &lt 1 R      &lt 4 SPACE  &key_repeat  &lt 2 SPACE  &kp BSPC
                         >;
                 };
