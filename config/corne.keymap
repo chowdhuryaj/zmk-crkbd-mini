@@ -69,12 +69,12 @@
 
         esc_l {
             bindings = <&kp ESC>;
-            key-positions = < 10 11>;
+            key-positions = <10 11>;
         };
 
         esc_r {
             bindings = <&kp ESC>;
-            key-positions = < 18 19 >;
+            key-positions = <18 19 >;
         };
     };
 
