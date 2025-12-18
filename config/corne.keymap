@@ -44,12 +44,38 @@
 
         ret_r {
             bindings = <&kp ENTER>;
-            key-positions = <17 18>;
+            key-positions = <16 17>;
+        };
+
+        tab_l {
+            bindings = <&kp TAB>;
+            key-positions = <11 12>;
+        };
+
+        tab_r {
+            bindings = <&kp TAB>;
+            key-positions = <15 16>;
+        };
+
+        btab_l {
+            bindings = <&kp TAB>;
+            key-positions = <21 22>;
+        };
+
+        btab_r {
+            bindings = <&kp TAB>;
+            key-positions = <25 26>;
         };
 
         esc_l {
             bindings = <&kp ESC>;
-            key-positions = <
+            key-positions = < 10 11>;
+        };
+
+        esc_r {
+            bindings = <&kp ESC>;
+            key-positions = < 18 19 >;
+        };
     };
 
     keymap {
