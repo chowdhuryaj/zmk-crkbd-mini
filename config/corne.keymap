@@ -133,9 +133,10 @@
         DEF {
             display-name = "Base";
             bindings = <
-&kp B       &kp F        &kp L  &kp K      &kp Q        &kp P         &kp G       &kp O        &kp U        &kp SQT      &hm LCTRL N  &hm LALT S
-&hm LGUI H  &hm LSHFT T  &kp M  &kp Y      &hm RSHFT C  &hm RGUI A    &hm RALT E  &hm RCTRL I  &kp X        &kp V        &kp J        &kp D
-&kp Z       &kp SEMI     &kp W  &kp COMMA  &kp DOT      &kp FSLH      &bsdel      &lt 3 R      &lt 1 SPACE  &key_repeat  &lt 2 SPACE  &bsdel
+&kp B        &kp F         &kp L       &kp K        &kp Q              &kp P      &kp G        &kp O         &kp U       &kp SQT
+&hm LCTRL N  &hm LALT S    &hm LGUI H  &hm LSHFT T  &kp M              &kp Y      &hm RSHFT C  &hm RGUI A    &hm RALT E  &hm RCTRL I
+&kp X        &kp V        &kp J        &kp D    &kp Z                  &kp SEMI     &kp W  &kp COMMA  &kp DOT      &kp FSLH
+                                       &bsdel   &lt 3 R  &lt 1 SPACE   &key_repeat  &lt 2 SPACE  &bsdel
             >;
         };
 
@@ -160,8 +161,8 @@
         NAV {
             display-name = "Nav";
             bindings = <
-&kt LGUI  &kp HOME      &kp UP         &kp END    &kt LALT            &msc SCRL_LEFT       &msc MOVE_Y(50)    &mmv MOVE_Y(-1000)  &msc MOVE_Y(-50)  &msc SCRL_RIGHT  &kt LSHFT  &kp LEFT
-&kp DOWN  &kp RIGHT     &kt LCTRL      &kp PG_UP  &mmv MOVE_X(-1000)  &mmv MOVE_Y(1000)    &mmv MOVE_X(1000)  &kp PG_DN           &mkp MB4          &mkp MB2         &mkp MB3   &mkp MB1
+&kt LGUI  &kp HOME      &kp UP         &kp END    &kt LALT            &msc SCRL_LEFT       &msc MOVE_Y(50)    &mmv MOVE_Y(-800)  &msc MOVE_Y(-50)  &msc SCRL_RIGHT  &kt LSHFT  &kp LEFT
+&kp DOWN  &kp RIGHT     &kt LCTRL      &kp PG_UP  &mmv MOVE_X(-800)  &mmv MOVE_Y(800)    &mmv MOVE_X(800)  &kp PG_DN           &mkp MB4          &mkp MB2         &mkp MB3   &mkp MB1
 &mkp MB5  &kp LA(PLUS)  &kp LA(MINUS)  &kp GRAVE  &kp LA(GRAVE)       &kp LG(GRAVE)        &none              &mo 1               &none             &mkp MB1         &mo 4      &mkp MB2
             >;
         };
