@@ -8,6 +8,7 @@
 #define FN      2
 #define NAV     3
 #define SNIPER  4
+#define RAD     5
 #define COMBO_TIMEOUT_MS 35
 #define COMBO_RPI_MS     80
 
@@ -121,9 +122,8 @@
         };
 
         rad {
-            bindings = <&tog 0>;
+            bindings = <&tog 5>;
             key-positions = <16 15 37 14>;
-            layers = <0>;
         };
     };
 
