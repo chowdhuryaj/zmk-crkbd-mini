@@ -127,7 +127,7 @@
         DEF {
             display-name = "Base";
             bindings = <
-&kp W        &kp O        &kp U       &kp L        &kp D                             &kp SEMI    &kp COMMA    &kp DOT      &kp FLSH     &kp SQT
+&kp W        &kp O        &kp U       &kp L        &kp D                             &kp SEMI    &kp COMMA    &kp DOT      &kp FSLH     &kp SQT
 &hm LCTRL I  &hm LALT E   &hm LGUI A  &hm LSHFT C  &kp Y                             &kp M       &hm RSHFT T  &hm RGUI H   &hm RALT S   &hm RCTRL N
 &kp B        &kp F        &kp G       &kp K        &kp J                             &kp Q       &kp P        &kp V        &kp X        &kp Z
                                       &bsdel       &ltmid_1  &ltin_2    &key_repeat  &kp SPACE   &kp BSLH
